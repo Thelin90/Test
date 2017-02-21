@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html >
+    <head>
+	<link rel="stylesheet" media="screen, print, handheld" type="text/css" href="calculator.css" />
+	<SCRIPT LANGUAGE="JavaScript">
+
+	<!-- Begin -->
+	function addChar(input, character) {
+		if(input.value == null || input.value == "0")
+			input.value = character
+		else
+			input.value += character
+	}	
+	function cos(form) {
+		form.display.value = Math.cos(form.display.value);
+	}
+	
+	function sin(form) {
+		form.display.value = Math.sin(form.display.value);
+	}
+
+	function tan(form) {
+		form.display.value = Math.tan(form.display.value);
+	}
+
+	function sqrt(form) {
+		form.display.value = Math.sqrt(form.display.value);
+	}
+
+	function ln(form) {
+		form.display.value = Math.log(form.display.value);
+	}
+
+	
+	function exp(form) {
+		form.display.value = Math.exp(form.display.value);
+	}
+
+	function sqrt(form) {
+		form.display.value = Math.sqrt(form.display.value);
+	}
+
+	function deleteChar(input) {
+		input.value = input.value.substring(0, input.value.length - 1)
+	}
+	
+	function clearInputs(input, inputSum) {
+		inputSum.value = '';
+		input.value = '';
+	}
+
+	function changeSign(input) {
+		if(input.value.substring(0, 1) == "-")
+			input.value = input.value.substring(1, input.value.length)
+		else
+			input.value = "-" + input.value
+	}
+
+	function compute(form)  {
+		form.display_sum.value = eval(form.display.value)}
+
+	function square(form)  {
+		form.display_sum.value = eval(form.display.value) *
+		eval(form.display.value)}
+
+	function checkNum(str)  {
+		for (var i = 0; i < str.length; i++) {
+			var ch = str.substring(i, i+1)
+			if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch !="-" && ch != "."&& ch != "(" && ch!= ")") {
+				alert("invalid entry!")
+				return false
+			}			}
+	}
+	return true
+}
+// End -->
+</SCRIPT>
+
+</head>
+	
+	<body>
+	
+	<!-- Demonstration -->
+	<center><form>
+	
+	<table colspan="4" rowspan="8" class="calculator" id="calc">
+	
+		<tr >
+			<td colspan="2" rowspan="1" class="calc_td_result">
+				<input name="display" value="0" size="10" >
+			</td>
+			
+			<td colspan="2" rowspan="1" class="calc_td_result_sum" >
+				<input name="display_sum" value="" size="10" >
+			</td>
+			
+		</tr>
+
+	<tr>
+	
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn" value="1" onClick="addChar(this.form.display, '1')">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn" value="2" onClick="addChar(this.form.display, '2')">
+			
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="3" onClick="addChar(this.form.display, '3')">
+		</td>
+				
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn" value="4" onClick="addChar(this.form.display, '4')">
+		</td>
+
+	</tr>
+	
+	<tr>
+				
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="5" onClick="addChar(this.form.display, '5')">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="6" onClick="addChar(this.form.display, '6')">
+		</td>	
+		
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="7" onClick="addChar(this.form.display, '7')">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="8" onClick="addChar(this.form.display, '8')">
+		</td>
+				
+	</tr>
+	
+	<tr>
+	
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="9" onClick="addChar(this.form.display, '9')">
+		</td>
+			
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="0" onClick="addChar(this.form.display, '0')">
+		</td>
+		
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="(" onClick="addChar(this.form.display, '(')">
+		</td>
+			
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value=")" onClick="addChar(this.form.display, ')')">
+		</td>
+			
+	</tr>
+	
+	<tr>
+		
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="ln" onClick="if (checkNum(this.form.display.value)){ ln(this.form) }">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="sqrt" onClick="if (checkNum(this.form.display.value)){sqrt(this.form) }">
+		</td>
+		
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="exp" onClick="if (checkNum(this.form.display.value)){exp(this.form) }">
+		</td>
+
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="/" onClick="addChar(this.form.display, '/')">
+		</td>
+		
+	</tr>
+	
+	<tr>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="-" onClick="addChar(this.form.display, '-')">
+		</td>
+		
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="+" onClick="addChar(this.form.display, '+')">
+		</td>
+		
+					
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="*" onClick="addChar(this.form.display, '*')">
+		</td>
+			
+
+						
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="." onClick="addChar(this.form.display, '.')">
+		</td>
+	</tr>
+	
+	<tr>
+ 
+		<td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="+/-" onClick="changeSign(this.form.display)">
+		</td>
+		
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="sq" onClick="if (checkNum(this.form.display.value)){square(this.form) }">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="cos" onClick="if (checkNum(this.form.display.value)){cos(this.form) }">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="sin" onClick="if (checkNum(this.form.display.value)){sin(this.form) }">
+		</td>
+		
+	</tr>
+	
+	<tr>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="tan" onClick="if (checkNum(this.form.display.value)){tan(this.form) }">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="C" onClick="clearInputs(this.form.display, this.form.display_sum)">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="<-" onClick="deleteChar(this.form.display)">
+		</td>
+			
+        <td class="calc_td_btn">
+			<input type="button" class="calc_btn"  value="=" name="enter" onClick="if (checkNum(this.form.display.value)){compute(this.form)}">
+		</td>
+		
+	</tr>
+	</table>
+	</FORM>
+	</body>
+</html>
